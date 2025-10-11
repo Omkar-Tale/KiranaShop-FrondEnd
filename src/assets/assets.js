@@ -71,9 +71,15 @@ import brown_rice_image from "./brown_rice_image.png";
 import barley_image from "./barley_image.png";
 import main_banner2 from "./main_banner2.jpg"
 import main_banner3 from "./main_banner3.jpg"
+import FastDelivery from "./FastDelivery.png"
+import Freshness from "./Freshness.png"
+import BestPrices from "./BestPrices.png"
 
 export const assets = {
   logo,
+  FastDelivery,
+  Freshness,
+  BestPrices,
   search_icon,
   remove_icon,
   arrow_right_icon_colored,
