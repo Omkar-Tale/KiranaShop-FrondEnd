@@ -110,42 +110,49 @@ export const categories = [
     path: "Vegetables",
     image: organic_vegitable_image,
     bgColor: "#FEF6DA",
+    borderColor: "#E6DA9E"
   },
   {
     text: "Fresh Fruits",
     path: "Fruits",
     image: fresh_fruits_image,
     bgColor: "#FEE0E0",
+    borderColor: "#E0A8A8"
   },
   {
     text: "Cold Drinks",
     path: "Drinks",
     image: bottles_image,
     bgColor: "#F0F5DE",
+    borderColor: "#D1DAA6"
   },
   {
     text: "Instant Food",
     path: "Instant",
     image: maggi_image,
     bgColor: "#E1F5EC",
+    borderColor: "#9FD6C0"
   },
   {
     text: "Dairy Products",
     path: "Dairy",
     image: dairy_product_image,
     bgColor: "#FEE6CD",
+    borderColor: "#E0B47A"
   },
   {
     text: "Bakery & Breads",
     path: "Bakery",
     image: bakery_image,
     bgColor: "#E0F6FE",
+    borderColor: "#9DD4E6"
   },
   {
     text: "Grains & Cereals",
     path: "Grains",
     image: grain_image,
     bgColor: "#F1E3F9",
+    borderColor: "#C7A9E0"
   },
 ];
 

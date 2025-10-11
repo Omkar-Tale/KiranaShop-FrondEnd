@@ -25,7 +25,7 @@ const MainBanner = () => {
           <div className='w-full h-[70vh] relative flex-shrink-0 top-0' key={index}>
             <img src={slide.image} alt="banners" className='w-full  h-[70vh] object-cover' />
 
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
           </div>
             
           
