@@ -74,11 +74,13 @@ import main_banner3 from "./main_banner3.jpg"
 import FastDelivery from "./FastDelivery.png"
 import Freshness from "./Freshness.png"
 import BestPrices from "./BestPrices.png"
+import featuresJ from "./featuresJ.jpg"
 
 export const assets = {
   logo,
   FastDelivery,
   Freshness,
+  featuresJ,
   BestPrices,
   search_icon,
   remove_icon,

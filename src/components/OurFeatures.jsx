@@ -3,39 +3,64 @@ import { assets } from "../assets/assets.js"
 
 const OurFeatures = () => {
     const [isHover, setIsHover] = React.useState(false);
+
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center">
-                <img className="max-w-2xl w-full xl:-ml-32" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/group-image-1.png" alt="" />
-                <div className="px-4 md:px-0" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-                    <div className={"flex items-center justify-center gap-6 max-w-md group cursor-pointer"}>
-                        <div className={`p-6 group-hover:bg-violet-100 border border-transparent group-hover:border-violet-300  flex gap-4 rounded-xl transition-colors ${!isHover ? 'border-violet-300 bg-violet-100' : ''}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6 stroke-violet-600"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></svg>
+        <div className="flex flex-col items-center mt-16 mb-16 gap-1">
+            <div className="min-h-screen w-full bg-white relative text-gray-800">
+            <h2 className="text-4xl font-semibold text-center mt-10 mb-5">Our Services</h2>
+                <div
+                    className="absolute inset-0 z-0 pointer-events-none"
+                    style={{
+                        backgroundImage: `
+                            repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(75,85,99,0.08) 20px, rgba(75,85,99,0.08) 21px),
+                            repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(107,114,128,0.06) 30px, rgba(107,114,128,0.06) 31px),
+                            repeating-linear-gradient(60deg, transparent, transparent 40px, rgba(55,65,81,0.05) 40px, rgba(55,65,81,0.05) 41px),
+                            repeating-linear-gradient(150deg, transparent, transparent 35px, rgba(31,41,55,0.04) 35px, rgba(31,41,55,0.04) 36px)
+                        `,
+                    }}
+                />
+                <div className="relative z-10 flex flex-col md:flex-row items-center justify-center sm:gap-10 gap-10">
+                    <img src={assets.featuresJ} alt="Feature" className=" w-150 mt-3 object-cover rounded-2xl" />
+                    <div className="flex flex-col gap-1  mt-5 px-4 md:px-0">
+                        <div
+                            className={`p-6 flex gap-4 rounded-xl border transition-colors mt-3 cursor-pointer ${isHover ? 'border-violet-300 bg-violet-100' : 'border-transparent hover:border-violet-300 hover:bg-violet-100'}`}
+                            onMouseEnter={() => setIsHover(true)}
+                            onMouseLeave={() => setIsHover(false)}
+                        >
+                            <img src={assets.delivery_truck_icon} alt="Fast Delivery" />
                             <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Real-Time Analytics</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">Get instant insights into your finances with live dashboards.</p>
+                                <h3 className="text-base font-semibold text-slate-700">Fastest Delivery</h3>
+                                <p className="text-sm text-slate-600 max-w-xs">Groceries delivered in under 30 minutes.</p>
                             </div>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-                        <div className="p-6 group-hover:bg-green-100 border border-transparent group-hover:border-green-300 flex gap-4 rounded-xl transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6 stroke-green-600"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" /></svg>
+
+                        <div className="p-6 flex gap-4 rounded-xl border border-transparent hover:border-green-300 hover:bg-green-100 transition-colors cursor-pointer">
+                            <img src={assets.leaf_icon} alt="Freshness" />
                             <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Bank-Grade Security</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">End-to-end encryption, 2FA, compliance with GDPR standards.</p>
+                                <h3 className="text-base font-semibold text-slate-700">Freshness Guaranteed</h3>
+                                <p className="text-sm text-slate-600 max-w-xs">Fresh produce straight from the source.</p>
                             </div>
                         </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-                        <div className="p-6 group-hover:bg-orange-100 border border-transparent group-hover:border-orange-300 flex gap-4 rounded-xl transition-colors">
-                            <svg className="size-6 stroke-orange-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg>
+
+                        <div className="p-6 flex gap-4 rounded-xl border border-transparent hover:border-orange-300 hover:bg-orange-100 transition-colors cursor-pointer">
+                            <img src={assets.coin_icon} alt="Affordable Prices" />
                             <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Customizable Reports</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">Export professional, audit-ready financial reports for tax or internal review.</p>
+                                <h3 className="text-base font-semibold text-slate-700">Affordable Prices</h3>
+                                <p className="text-sm text-slate-600 max-w-xs">Quality groceries at unbeatable prices.</p>
+                            </div>
+                        </div>
+
+                        <div className="p-6 flex gap-4 rounded-xl border border-transparent hover:border-orange-300 hover:bg-orange-100 transition-colors cursor-pointer">
+                            <img src={assets.trust_icon} alt="Affordable Prices" />
+                            <div className="space-y-2">
+                                <h3 className="text-base font-semibold text-slate-700">Trusted by Thousands</h3>
+                                <p className="text-sm text-slate-600 max-w-xs">Loved by 10,000+ happy customers.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     )
 }
 
