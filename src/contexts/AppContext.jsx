@@ -8,7 +8,7 @@ export const AppContext = createContext();
 export const AppContextProvider = ({children})=>{
 
     const currency = "$";
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useState(false);
     const [isSeller, setIsSeller] = useState(false);
     const [showUserLogin, setShowUserLogin] = useState(false);
     const navigate = useNavigate()
