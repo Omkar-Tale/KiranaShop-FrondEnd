@@ -2,14 +2,20 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import { assets } from '../assets/assets'
 import { useAppContext } from '../contexts/AppContext';
+import { useEffect } from 'react';
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-    const {user,navigate, setUser,  setShowUserLogin}= useAppContext();
+    const {user,navigate, setUser,  setShowUserLogin , searchQuery, setSearchQuery}= useAppContext();
     const logout = ()=>{
         setUser(null);
         navigate("/")
     }
+    useEffect(()=>{
+        if(searchQuery.length > 0){
+            navigate("/products")
+        }
+    }, [searchQuery])
   return (
     <nav className="flex items-center font-outfit justify-between px-6 md:px-13 lg:px-16 xl:px-20 py-2 border-b border-gray-300 bg-transparent relative transition-all">
 
@@ -24,7 +30,7 @@ const Navbar = () => {
                 <NavLink to="/contact" className={({isActive})=> isActive ? "text-purple-800" : "text-black"}>Contact</NavLink>
 
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-purple-700 px-3 rounded-full">
-                    <input className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
+                    <input onChange={(e)=> setSearchQuery(e.target.value)} className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
                     <img src={assets.search_icon} alt="search icon" className='w-5' />
                 </div>
 
