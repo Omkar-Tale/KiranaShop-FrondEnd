@@ -4,7 +4,7 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <footer className="relative bg-purple-800/10 overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500 ">
+    <footer className="relative mt-10 bg-purple-800/10 overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500 ">
       <div className="relative z-10">
         <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
           <div className="md:max-w-96">
