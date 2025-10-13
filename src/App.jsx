@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import { useAppContext } from './contexts/AppContext'
 import Login from './components/Login'
 import AllProducts from './pages/AllProducts'
+import ProductCategory from './pages/ProductCategory'
 
 const App = () => {
   const { showUserLogin } = useAppContext()
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<AllProducts />} />
+        <Route path='/product/:category' element={<ProductCategory />} />
       </Routes>
       <Footer />
     </>

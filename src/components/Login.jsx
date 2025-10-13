@@ -12,8 +12,12 @@ const Login = () => {
     })
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
+        setUser({
+            email : "omkartale@gamil.com",
+            name: "Omkar Tale"
+        })
+        setShowUserLogin(false)
     }
 
     const handleChange = (e) => {
@@ -22,7 +26,7 @@ const Login = () => {
     }
   return (
     <div onClick={()=> setShowUserLogin(false)} className='fixed inset-0 z-30 flex items-center justify-center bg-black/80 text-sm text-gray-600'>
-    <form onClick={(e)=> e.stopPropagation()} className="sm:w-[350px] w-full text-center border border-gray-300/60 rounded-2xl px-8 bg-white">
+    <form onSubmit={handleSubmit} onClick={(e)=> e.stopPropagation()} className="sm:w-[350px] w-full text-center border border-gray-300/60 rounded-2xl px-8 bg-white">
                 <h1 className="text-purple-900 text-3xl mt-10 font-medium">{state === "login" ? "Login" : "Sign up"}</h1>
                 <p className="text-gray-500 text-sm mt-2">Please sign in to continue</p>
                 {state !== "login" && (
