@@ -107,7 +107,7 @@ const CartDetails = () => {
                                         {address.street}, {address.city}, {address.state}, {address.country}
                                     </p>
                                 ))}
-                                <p onClick={() => navigate("/add-address")} className="text-purple-500 text-center cursor-pointer p-2 hover:bg-purple-500/10">
+                                <p onClick={() => {navigate("/add-address"); scrollTo(0,0)}} className="text-purple-500 text-center cursor-pointer p-2 hover:bg-purple-500/10">
                                     Add address
                                 </p>
                             </div>

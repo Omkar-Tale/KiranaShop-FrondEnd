@@ -52,7 +52,7 @@ const Navbar = () => {
                 )}
             </div>
 
-          <div className='flex items-center gap-6 sm:hidden'>
+          <div className='flex items-center gap-6 sm:hidden'> 
               <div onClick={() => navigate(`cart`)} className="relative cursor-pointer">
                   <img src={assets.cart_icon} alt="cart" className='w-7' />
                   <button className="absolute -top-2 -right-3 text-xs text-purple-800 bg-purple-700/20 w-[18px] h-[18px] rounded-full">{getCartCount()}</button>

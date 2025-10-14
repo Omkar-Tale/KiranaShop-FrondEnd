@@ -5,12 +5,12 @@ const OurFeatures = () => {
     const [isHover, setIsHover] = React.useState(false);
 
     return (
-        <div className="flex flex-col items-center mt-16 gap-1">
-            <div className="min-h-screen w-full bg-white relative text-gray-800">
+        <div className="flex sm:flex-row flex-col items-center mt-16 gap-1">
+            <div className="mb-25 w-full bg-white relative text-gray-800">
             <h2 className="text-4xl font-semibold text-center mt-10 mb-5">Our Services</h2>
-                <div className="relative z-10 flex flex-col md:flex-row items-center justify-center sm:gap-30 gap-10">
-                    <img src={assets.featuresJ} alt="Feature" className=" w-150 mt-3 object-cover rounded-2xl" />
-                    <div className="flex flex-col gap-1  mt-5 px-4 md:px-0">
+                <div className="relative z-10 flex flex-col md:flex-row items-center px-6 justify-center sm:gap-30 gap-10">
+                    <img src={assets.featuresJ} alt="Feature" className=" w-140 mt-3 object-cover rounded-2xl" />
+                    <div className="flex flex-col gap-1 mt-5 px-4 md:px-0">
                         <div
                             className={`p-6 flex gap-4 rounded-xl border transition-colors mt-3 cursor-pointer ${isHover ? 'border-violet-300 bg-violet-100' : 'border-transparent hover:border-violet-300 hover:bg-violet-100'}`}
                             onMouseEnter={() => setIsHover(true)}
