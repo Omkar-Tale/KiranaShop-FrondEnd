@@ -8,12 +8,14 @@ import Login from './components/Login'
 import AllProducts from './pages/AllProducts'
 import ProductCategory from './pages/ProductCategory'
 import ProductDetails from './pages/ProductDetails'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   const { showUserLogin } = useAppContext()
   return (
     <>
     <Navbar />
+    <Toaster />
     {showUserLogin ? <Login /> : null}
       <Routes>
         <Route path='/' element={<Home />} />
