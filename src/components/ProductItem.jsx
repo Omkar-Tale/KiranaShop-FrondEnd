@@ -24,18 +24,18 @@ const ProductItem = ({product}) => {
                     <p className="md:text-xl text-base font-medium text-indigo-500">
                         {currency}{product.offerPrice} {" "} <span className="text-gray-500/60 md:text-sm text-xs line-through">{currency}{product.price}</span>
                     </p>
-                    <div onClick={(e)=> e.stopPropagation()} className="text-indigo-500">
+                    <div onClick={(e)=> e.stopPropagation()} className="text-purple-900">
                         {!cartItem[product._id] ? (
-                            <button className="flex items-center justify-center gap-1 bg-indigo-100 border border-indigo-300 md:w-[80px] w-[64px] h-[34px] rounded text-indigo-600 font-medium" onClick={() =>addToCart(product._id)}  >
+                            <button className="flex items-center justify-center gap-1 bg-purple-100 border border-purple-300 md:w-[80px] w-[64px] h-[34px] hover:bg-purple-400/30 cursor-pointer rounded text-purple-900 font-medium" onClick={() =>addToCart(product._id)}  >
                                 <img src={assets.cart_icon} alt="cart icon" className='w-4' />
                                 Add
                             </button>
                         ) : (
-                            <div onClick={(e)=> e.stopPropagation()} className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-indigo-500/25 rounded select-none">
+                            <div onClick={(e)=> e.stopPropagation()} className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-purple-500/25 rounded select-none">
                                 <button onClick={(e) => {deleteCartItem(product._id); e.stopPropagation()}} className="cursor-pointer text-md px-2 h-full" >
                                     -
                                 </button>
-                                <span className="w-5 text-center">{cartItem[product._id]}</span>
+                                <span className="w-5 text-center text-purple-900">{cartItem[product._id]}</span>
                                   <button onClick={(e) => {
                                       e.stopPropagation();
                                       addToCart(product._id);

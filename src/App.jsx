@@ -9,6 +9,7 @@ import AllProducts from './pages/AllProducts'
 import ProductCategory from './pages/ProductCategory'
 import ProductDetails from './pages/ProductDetails'
 import { Toaster } from 'react-hot-toast'
+import CartDetails from './pages/CartDetails'
 
 const App = () => {
   const { showUserLogin } = useAppContext()
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/products' element={<AllProducts />} />
         <Route path='/product/:category' element={<ProductCategory />} />
         <Route path='/products/:category/:id' element={<ProductDetails />} />
+        <Route path='/cart' element={<CartDetails />} />
       </Routes>
       <Footer />
     </>

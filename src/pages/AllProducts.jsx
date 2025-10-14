@@ -23,7 +23,7 @@ const AllProducts = () => {
     <div className='mt-15 flex flex-col mb-15 px-10'>
         <div className='flex flex-col items-end w-max'>
             <h2 className='text-3xl flex flex-col uppercase font-outfit'>All Products</h2>
-            <div className='w-20 h-0.5 bg-purple-700 rounded-full'></div>
+            <div className='w-30 h-0.5 bg-purple-700 rounded-full'></div>
         </div>
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 mt-6'>
             {filteredProducts.filter((product)=> product.inStock).map((p, index)=>(

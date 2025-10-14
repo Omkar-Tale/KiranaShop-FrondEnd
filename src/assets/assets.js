@@ -165,9 +165,9 @@ export const categories = [
 ];
 
 export const imageSlides = [
-  {image: main_banner_bg},
   {image: main_banner2},
   {image: main_banner3},
+  {image: main_banner_bg},
 ]
 
 export const footerLinks = [

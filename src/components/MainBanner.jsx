@@ -50,19 +50,19 @@ const MainBanner = () => {
             </div>
                 <button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
+                  className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
                 >
                   <FaArrowLeft />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
+                  className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
                 >
                   <FaArrowRight />
                 </button>
           </div>
     </>
   )
-}
+}                                                               
 
 export default MainBanner

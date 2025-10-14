@@ -5,7 +5,7 @@ const OurFeatures = () => {
     const [isHover, setIsHover] = React.useState(false);
 
     return (
-        <div className="flex flex-col items-center mt-16 mb-16 gap-1">
+        <div className="flex flex-col items-center mt-16 gap-1">
             <div className="min-h-screen w-full bg-white relative text-gray-800">
             <h2 className="text-4xl font-semibold text-center mt-10 mb-5">Our Services</h2>
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-center sm:gap-30 gap-10">
