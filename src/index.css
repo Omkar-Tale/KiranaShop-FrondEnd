@@ -10,3 +10,7 @@
 * {
   font-family: var(--font-outfit);
 }
+
+.no-scrollbar::-webkit-scrollbar{
+  display: none
+}

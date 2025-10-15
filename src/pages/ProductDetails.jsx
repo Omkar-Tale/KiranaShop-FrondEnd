@@ -35,7 +35,7 @@ const ProductDetails = () => {
     <div className="max-w-6xl mt-10 w-full m-auto px-5 sm:px-0">
             <p>
                 <Link to={"/"}>Home</Link> /
-                <Link to={"/product"}> Products</Link> /
+                <Link to={"/products"}> Products</Link> /
                 <Link to={`/product/${product.category.toLowerCase()}`}> {product.category}</Link> /
                 <span className="text-indigo-500"> {product.name}</span>
             </p>
@@ -83,7 +83,7 @@ const ProductDetails = () => {
                         <button onClick={(e)=> {addToCart(product._id)}} className="w-full py-3.5 cursor-pointer font-medium bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition" >
                             Add to Cart
                         </button>
-                        <button onClick={()=> {addToCart(product._id); navigate("/cart")}} className="w-full py-3.5 cursor-pointer font-medium bg-purple-700 text-white hover:bg-purple-600 transition" >
+                        <button onClick={()=> {addToCart(product._id); navigate("/cart"); scrollTo(0,0)}} className="w-full py-3.5 cursor-pointer font-medium bg-purple-700 text-white hover:bg-purple-600 transition" >
                             Buy now
                         </button>
                     </div>

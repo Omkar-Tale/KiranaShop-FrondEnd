@@ -16,7 +16,7 @@ import menu_icon from "./menu_icon.svg";
 import delivery_truck_icon from "./delivery_truck_icon.png";
 import leaf_icon from "./leaf_icon.png";
 import coin_icon from "./coin_icon.png";
-import box_icon from "./box_icon.svg";
+import box_icon from "./box_icon.png";
 import trust_icon from "./trust_icon.png";
 import black_arrow_icon from "./black_arrow_icon.svg";
 import white_arrow_icon from "./white_arrow_icon.svg";
@@ -811,8 +811,8 @@ export const dummyAddress = [
   {
     _id: "67b5b9e54ea97f71bbc196a0",
     userId: "67b5880e4d09769c5ca61644",
-    firstName: "Great",
-    lastName: "Stack",
+    firstName: "Omkar",
+    lastName: " Tale",
     email: "user.greatstack@gmail.com",
     street: "Street 123",
     city: "Main City",
