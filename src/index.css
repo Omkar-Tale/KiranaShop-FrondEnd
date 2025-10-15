@@ -11,6 +11,6 @@
   font-family: var(--font-outfit);
 }
 
-.no-scrollbar::-webkit-scrollbar{
+.hideScrollber::-webkit-scrollbar{
   display: none
 }

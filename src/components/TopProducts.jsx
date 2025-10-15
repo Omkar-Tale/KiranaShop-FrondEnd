@@ -7,7 +7,6 @@ const TopProducts = () => {
     const categories = [...new Set(dummyProducts.map(p => p.category))];
 
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-
     const filteredProducts = dummyProducts.filter(p => p.category === selectedCategory).slice(0, 10)
 
     return (
@@ -16,14 +15,10 @@ const TopProducts = () => {
                 Top Selling Products
             </h1>
             {/* tabs */}
-            <div className='flex w-full flex-wrap sm:flex sm:justify-center pt-3 gap-8 mb-5'>
+            <div className='flex w-full gap-5 flex-row overflow-x-scroll hideScrollber mb-4 sm:justify-center relative'>
                 {categories.map((cat, index) => (
-                    <div key={index} className='relative'>
-                        <h2 className={`text-2xl font-medium px-3 py-1 cursor-pointer ${selectedCategory === cat ? 'text-purple-900' : 'text-gray-700 hover:text-purple-600 transition-colors duration-300'}`} onClick={() => setSelectedCategory(cat)}>{cat}</h2>
-                        <span 
-                            className={`absolute bottom-0 left-0 h-0.5 rounded-full transition-all duration-300 ease-in-out
-                                ${selectedCategory === cat ? 'w-full bg-purple-800' : 'w-0 bg-gray-500 group-hover:w-full'}`}
-                        ></span>
+                    <div key={index} className={`px-4 py-1 border rounded-full ${selectedCategory === cat ? 'bg-purple-200 border-purple-500' : 'bg-white border-gray-300'}`}>
+                        <h2 className={`text-xl font-medium px-3 py-1 cursor-pointer ${selectedCategory === cat ? 'text-purple-900' : 'text-gray-700 hover:text-purple-600 transition-colors duration-300'}`} onClick={() => setSelectedCategory(cat)}>{cat}</h2>
                     </div>
                 ))}
             </div>
