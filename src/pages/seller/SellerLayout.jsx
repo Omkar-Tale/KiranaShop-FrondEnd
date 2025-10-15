@@ -23,9 +23,9 @@ const SellerLayout = () => {
                 <Link to="/">
                     <img className="cursor-pointer w-34 md:w-38" src={assets.logo} alt="logo" />
                 </Link>
-                <div className="flex items-center gap-5 text-gray-500">
+                <div className="flex items-center gap-5 text-purple-800">
                     <p>Hi! Admin</p>
-                    <button onClick={logout} className='border rounded-full text-sm px-4 py-1'>Logout</button>
+                    <button onClick={logout} className='border rounded-full border-purple-800 cursor-pointer text-sm px-4 py-1'>Logout</button>
                 </div>
             </div>
             <div className='flex min-h-screen'>
