@@ -34,7 +34,7 @@ const CartDetails = () => {
 
 
   return products.length > 0 && cartItem && (
-    <div className="flex flex-col justify-around md:flex-row mt-10">
+    <div className="flex flex-col px-5 sm:px-10 justify-around md:flex-row mt-10">
             <div className='flex-1 max-w-4xl px-5'>
                 <h1 className="text-3xl font-medium mb-6">
                     Shopping Cart <span className="text-sm text-purple-500">{getCartCount()} Items</span>
@@ -139,7 +139,7 @@ const CartDetails = () => {
                     </p>
                 </div>
 
-                <button onClick={placeOrder} className="w-full py-3 mt-6 cursor-pointer bg-purple-500 text-white font-medium hover:bg-purple-600 transition">
+                <button onClick={()=> {{placeOrder}; paymentOption === "COD" ? navigate("/my-orders"): navigate("/checkout")}} className="w-full py-3 mt-6 cursor-pointer bg-purple-500 text-white font-medium hover:bg-purple-600 transition">
                     {paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}
                 </button>
             </div>

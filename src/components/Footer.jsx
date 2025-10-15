@@ -19,10 +19,10 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold mb-5 text-gray-800">Company</h2>
               <ul className="text-sm space-y-2">
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About us</NavLink></li>
-                <li><NavLink to="/contact">Contact us</NavLink></li>
-                <li><NavLink to="/pravacy">Privacy policy</NavLink></li>
+                <li><NavLink to="/" onClick={()=> window.scrollTo(0,0)}>Home</NavLink></li>
+                <li><NavLink to="/about" onClick={()=> window.scrollTo(0,0)}>About us</NavLink></li>
+                <li><NavLink to="/contact" onClick={()=> window.scrollTo(0,0)}>Contact us</NavLink></li>
+                <li><NavLink to="/pravacy" onClick={()=> window.scrollTo(0,0)}>Privacy policy</NavLink></li>
               </ul>
             </div>
             <div>

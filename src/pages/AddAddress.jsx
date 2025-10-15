@@ -30,7 +30,7 @@ const AddAddress = () => {
   const handleChange = (e)=>{
     const {name, value } = e.target;
     setAddress((prev)=> ({
-      ...AddAddress,
+      ...prev,
       [name]: value
     }))
   }
@@ -64,6 +64,7 @@ const AddAddress = () => {
               <InputFeild handleChange={handleChange} address={address} name="pincode" type="pincode" placeholder="Pincode" />
               <InputFeild handleChange={handleChange} address={address} name="country" type="country" placeholder="Country" />
               </div>
+              <InputFeild handleChange={handleChange} address={address} name="phone" type="country" placeholder="Phone No.." />
               <button className='w-full bg-purple-600 hover:bg-purple-700 font-semibold text-base cursor-pointer text-white py-3 rounded-md'>Save Address</button>
           </form>
         </div>
