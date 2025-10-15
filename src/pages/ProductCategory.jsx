@@ -10,6 +10,7 @@ const ProductCategory = () => {
     const searchCategories = categories.find((item)=> item.path.toLowerCase() === category.toLowerCase());
 
     const filterProducts = products.filter((p)=> p.category.toLowerCase() === category.toLowerCase())
+    
   return (
     <div className='mt-10 px-3 sm:px-10'>
         {searchCategories && (
