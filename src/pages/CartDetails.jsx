@@ -60,10 +60,7 @@ const CartDetails = () => {
                                         <p>Qty:</p>
                                         <select
                                             onChange={(e) =>
-                                                updateCartItem({
-                                                    itemId: product._id,
-                                                    quantity: Number(e.target.value),
-                                                })
+                                                updateCartItem( product._id, Number(e.target.value))
                                             }
                                             value={cartItem[product._id]}
                                             className='outline-none'>
