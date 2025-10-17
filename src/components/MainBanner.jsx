@@ -3,7 +3,8 @@ import { assets, imageSlides } from '../assets/assets'
 import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { FaArrowLeft, FaArrowRight  } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { easeInOut, motion } from "framer-motion";
 
 const MainBanner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,19 +19,24 @@ const MainBanner = () => {
   }, [])
   return (
     <>
-    <div className='overflow-hidden relative h-[70vh]'>
-      <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: easeInOut }}
+        viewport={{ amount: 0.2, once: true }}
+        className='overflow-hidden relative h-[70vh]'>
+        <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
-        {imageSlides.map((slide, index) => (
-          <div className='w-full h-[70vh] relative flex-shrink-0 top-0' key={index}>
-            <img src={slide.image} alt="banners" className='w-full  h-[70vh] object-cover' />
+          {imageSlides.map((slide, index) => (
+            <div className='w-full h-[70vh] relative flex-shrink-0 top-0' key={index}>
+              <img src={slide.image} alt="banners" className='w-full  h-[70vh] object-cover' />
 
-            <div className="absolute inset-0 bg-black/60"></div>
-          </div>
-            
-          
-        ))}
-      </div>
+              <div className="absolute inset-0 bg-black/60"></div>
+            </div>
+
+
+          ))}
+        </div>
         <div className='absolute inset-0 flex flex-col items-center justify-center text-white'>
 
           <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold max-w-72 md:max-w-80 lg:max-w-105 leading-tight lg:leading-15'>
@@ -47,22 +53,22 @@ const MainBanner = () => {
               <img src={assets.black_arrow_icon} alt="arrow" className='transition group-focus:translate-x-1' />
             </Link>
           </div>
-            </div>
-                <button
-                  onClick={prevSlide}
-                  className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
-                >
-                  <FaArrowLeft />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
-                >
-                  <FaArrowRight />
-                </button>
-          </div>
+        </div>
+        <button
+          onClick={prevSlide}
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
+        >
+          <FaArrowLeft />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer bg-white/50 hover:bg-white text-gray-800 px-3 py-3 text-2xl rounded-full shadow"
+        >
+          <FaArrowRight />
+        </button>
+      </motion.div>
     </>
   )
-}                                                               
+}
 
 export default MainBanner

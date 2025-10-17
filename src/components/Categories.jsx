@@ -1,11 +1,17 @@
 import React from 'react'
 import { categories } from '../assets/assets'
 import { useAppContext } from '../contexts/AppContext'
+import { easeInOut, motion } from "framer-motion";
 
 const Categories = () => {
     const {navigate} = useAppContext()
   return (
-    <div className='mt-10'>
+    <motion.div
+    initial={{y: -40, opacity: 0}}
+    whileInView={{y: 0, opacity: 1}}
+    transition={{duration: 1, ease: easeInOut}}
+    viewport={{amount: 0.2, once: true}}
+    className='mt-10'>
         <h1 className='font-outfit text-3xl font-semibold'>Categories</h1>
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 mb-10 mt-5 gap-6'>
             {categories.map((categories, index)=>(
@@ -15,7 +21,7 @@ const Categories = () => {
                 </div>
             ))}
         </div>
-    </div>
+    </motion.div>
   )
 }
 

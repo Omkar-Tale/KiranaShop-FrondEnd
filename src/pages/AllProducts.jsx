@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import ProductItem from '../components/ProductItem';
 import { useState } from 'react';
 import { assets } from '../assets/assets';
+import { easeInOut, motion } from "framer-motion";
 
 const AllProducts = () => {
     const {products, searchQuery, setSearchQuery} = useAppContext();
@@ -21,14 +22,19 @@ const AllProducts = () => {
     
     
   return (
-    <div className='mt-15 flex flex-col mb-15 px-6 sm:px-10'>
+    <motion.div
+    initial={{y: -40, opacity: 0}}
+    whileInView={{y: 0, opacity: 1}}
+    viewport={{once: true, amount: 0.2}}
+    transition={{duration: 0.5, ease: easeInOut}}
+    className='mt-15 flex flex-col mb-15 px-6 sm:px-10'>
       <div className='flex flex-col items-end w-max'>
         <h2 className='text-3xl flex flex-col uppercase font-outfit'>All Products</h2>
         <div className='w-30 h-0.5 bg-purple-700 rounded-full'></div>
       </div>
       <div>
 
-        <div className="flex items-center sm:w-80 mt-5 text-sm gap-2 border border-purple-700 px-3 rounded-full">
+        <div className="flex items-center sm:hidden mt-5 text-sm gap-2 border border-purple-700 px-3 rounded-full">
           <input onChange={(e) => setSearchQuery(e.target.value)} className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
           <img src={assets.search_icon} alt="search icon" className='w-5' />
         </div>
@@ -39,7 +45,7 @@ const AllProducts = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

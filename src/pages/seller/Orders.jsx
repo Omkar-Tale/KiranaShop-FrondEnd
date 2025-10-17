@@ -1,16 +1,30 @@
 import React from 'react'
 import { assets, dummyOrders } from '../../assets/assets';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useAppContext } from '../../contexts/AppContext';
 
 const Orders = () => {
+
+    const {currency} = useAppContext()
+    const [orders, setOrders] = useState([])
+
+    const fetchOrder = async ()=>{
+        setOrders(dummyOrders)
+    }
+
+    useEffect(()=>{
+        fetchOrder()
+    },[])
 
   return (
     <div className="md:p-10 p-4 space-y-4">
             <h2 className="text-lg font-medium">Orders List</h2>
-            {dummyOrders.map((order, index) => (
+            {orders.map((order, index) => (
                 <div key={index} className="flex flex-col md:grid md:grid-cols-[2fr_1fr_1fr_1fr] md:items-center gap-5 p-5 max-w-4xl rounded-md border border-gray-300 text-gray-800">
                     <div className="flex gap-5">
                         <img className="w-12 h-14 object-cover opacity-60" src={assets.box_icon} alt="boxIcon" />
-                        <>
+                        <div className='flex flex-col'>
                             {order.items.map((item, index) => (
                                 <div key={index} className="flex flex-col justify-center">
                                     <p className="font-medium">
@@ -18,7 +32,7 @@ const Orders = () => {
                                     </p>
                                 </div>
                             ))}
-                        </>
+                        </div>
                     </div>
 
                     <div className="text-sm">
@@ -26,7 +40,7 @@ const Orders = () => {
                         <p>{order.address.street}, {order.address.city}, {order.address.state},{order.address.zipcode}, {order.address.country}</p>
                     </div>
 
-                    <p className="font-medium text-base my-auto text-black/70">${order.amount}</p>
+                    <p className="font-medium text-base my-auto text-black/70">{currency}{order.amount}</p>
 
                     <div className="flex flex-col text-sm">
                         <p>Method: {order.paymentType}</p>

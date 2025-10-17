@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { assets } from '../../assets/assets';
+import { assets, categories } from '../../assets/assets';
 
 const AddProduct = () => {
     const [files, setFiles] = useState([]);
@@ -39,8 +39,8 @@ const AddProduct = () => {
                     <label onChange={(e)=> setCategory(e.target.value)} value={category} className="text-base font-medium" htmlFor="category">Category</label>
                     <select id="category" className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40">
                         <option value="">Select Category</option>
-                        {[{ name: 'Organic veggies' }, { name: 'Fresh Fruits' }, { name: 'Cold Drinks' }, { name: 'Instant Food' }, { name: 'Bakery & Breads' }, { name: 'Grains & Cereals' }, ].map((item, index) => (
-                            <option key={index} value={item.name}>{item.name}</option>
+                        {categories.map((item, index)=>(
+                            <option value={item.path} key={index}>{item.path}</option>
                         ))}
                     </select>
                 </div>

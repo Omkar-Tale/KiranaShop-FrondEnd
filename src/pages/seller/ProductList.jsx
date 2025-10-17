@@ -2,7 +2,7 @@ import React from 'react'
 import { useAppContext } from '../../contexts/AppContext'
 
 const ProductList = () => {
-    const {products} = useAppContext()
+    const {products, currency} = useAppContext()
   return (
     <div className="flex-1 flex flex-col justify-between">
             <div className="w-full md:p-10 p-4">
@@ -19,7 +19,7 @@ const ProductList = () => {
                         </thead>
                         <tbody className="text-sm text-gray-500">
                             {products.map((product, index) => (
-                                <tr key={index} className="border-t border-gray-500/20">
+                                <tr key={product._id} className="border-t border-gray-500/20">
                                     <td className="md:px-4 pl-2 md:pl-4 py-3 flex items-center space-x-3 truncate">
                                         <div className="border border-gray-300 rounded overflow-hidden">
                                             <img src={product.image[0]} alt="Product" className="w-16" />
@@ -27,7 +27,7 @@ const ProductList = () => {
                                         <span className="truncate max-sm:hidden w-full">{product.name}</span>
                                     </td>
                                     <td className="px-4 py-3">{product.category}</td>
-                                    <td className="px-4 py-3 max-sm:hidden">${product.offerPrice}</td>
+                                    <td className="px-4 py-3 max-sm:hidden">{currency}{product.offerPrice}</td>
                                     <td className="px-4 py-3">
                                         <label className="relative inline-flex items-center cursor-pointer text-gray-900 gap-3">
                                             <input type="checkbox" className="sr-only peer" defaultChecked={product.inStock} />
