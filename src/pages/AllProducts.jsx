@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import ProductItem from '../components/ProductItem';
 import { useState } from 'react';
 import { assets } from '../assets/assets';
-import { easeInOut, motion } from "framer-motion";
 
 const AllProducts = () => {
     const {products, searchQuery, setSearchQuery} = useAppContext();
@@ -22,12 +21,7 @@ const AllProducts = () => {
     
     
   return (
-    <motion.div
-    initial={{y: -40, opacity: 0}}
-    whileInView={{y: 0, opacity: 1}}
-    viewport={{once: true, amount: 0.2}}
-    transition={{duration: 0.5, ease: easeInOut}}
-    className='mt-15 flex flex-col mb-15 px-6 sm:px-10'>
+    <div className='mt-15 flex flex-col mb-15 px-6 sm:px-10'>
       <div className='flex flex-col items-end w-max'>
         <h2 className='text-3xl flex flex-col uppercase font-outfit'>All Products</h2>
         <div className='w-30 h-0.5 bg-purple-700 rounded-full'></div>
@@ -45,7 +39,7 @@ const AllProducts = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

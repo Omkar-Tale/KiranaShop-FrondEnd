@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { easeInOut, motion } from "framer-motion";
 
 const MainBanner = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,11 +18,7 @@ const MainBanner = () => {
   }, [])
   return (
     <>
-      <motion.div
-        initial={{ y: -40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: easeInOut }}
-        viewport={{ amount: 0.2, once: true }}
+      <div
         className='overflow-hidden relative h-[70vh]'>
         <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
@@ -66,7 +61,7 @@ const MainBanner = () => {
         >
           <FaArrowRight />
         </button>
-      </motion.div>
+      </div>
     </>
   )
 }

@@ -1,19 +1,13 @@
 import React from 'react'
 import { useAppContext } from '../contexts/AppContext';
 import { assets } from '../assets/assets';
-import { easeInOut, motion } from "framer-motion";
 
 const ProductItem = ({ product }) => {
     const [count, setCount] = React.useState(0);
     const { navigate, addToCart, cartItem, deleteCartItem, updateCartItem, currency } = useAppContext();
 
     return product && (
-        <motion.div
-            initial={{ y: -40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, ease: easeInOut }}
-            onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-md px-4 py-3 bg-white h-full flex flex-col w-full">
+        <div onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-md px-4 py-3 bg-white h-full flex flex-col w-full">
             <div className="group cursor-pointer flex items-center justify-center px-4">
                 <img className="group-hover:scale-105 transition max-w-26 md:max-w-36" src={product.image[0]} alt={product.name} />
             </div>
@@ -53,7 +47,7 @@ const ProductItem = ({ product }) => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

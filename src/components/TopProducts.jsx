@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ProductItem from './ProductItem'
 import { dummyProducts } from '../assets/assets'
-import { easeInOut, motion } from "framer-motion";
 
 const TopProducts = () => {
 
@@ -11,12 +10,7 @@ const TopProducts = () => {
     const filteredProducts = dummyProducts.filter(p => p.category === selectedCategory).slice(0, 10)
 
     return (
-        <motion.div
-            initial={{ y: -40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, ease: easeInOut }}
-            viewport={{ amount: 0.2, once: true }}
-            className='mt-10'>
+        <div className='mt-10'>
             <h1 className='font-outfit text-3xl font-semibold mb-6'>
                 Top Selling Products
             </h1>
@@ -39,7 +33,7 @@ const TopProducts = () => {
                 )}
             </div>
 
-        </motion.div>
+        </div>
     )
 }
 

@@ -1,17 +1,11 @@
 import React from 'react'
-import { assets } from "../assets/assets.js"
-import { easeInOut, motion } from "framer-motion";
+import { assets } from "../assets/assets.js" 
 
 const OurFeatures = () => {
     const [isHover, setIsHover] = React.useState(false);
 
     return (
-        <motion.div
-            initial={{ y: -40, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: easeInOut }}
-            viewport={{ amount: 0.2, once: true }}
-            className="flex sm:flex-row flex-col items-center mt-10 gap-1">
+        <div className="flex sm:flex-row flex-col items-center mt-10 gap-1">
             <div className="mb-25 w-full bg-white relative text-gray-800">
                 <h2 className="text-4xl font-semibold text-center mt-10 mb-5">Our Services</h2>
                 <div className="relative z-10 flex flex-col md:flex-row items-center px-6 justify-center sm:gap-30 gap-10">
@@ -55,7 +49,7 @@ const OurFeatures = () => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 
