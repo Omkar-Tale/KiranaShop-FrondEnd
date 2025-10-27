@@ -2,6 +2,10 @@ import {useState, useEffect, useContext, createContext, createRef} from "react"
 import { useNavigate } from "react-router-dom"
 import { dummyProducts } from "../assets/assets";
 import {toast} from "react-hot-toast"
+import axios from "axios"
+
+axios.defaults.withCredentials = true  //to send the cookies 
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL  //bydefualt uses base url
 
 export const AppContext = createContext();
 
@@ -15,6 +19,19 @@ export const AppContextProvider = ({children})=>{
     const [products, setProducts] = useState([])
     const [cartItem, setCartItem] = useState({})
     const [searchQuery, setSearchQuery] = useState({});    
+
+    const fetchSeller = async ()=>{
+        try {
+            const {data} = await axios.get("/api/seller/isSellerAuth")
+            if(data.success){
+                setIsSeller(true)
+            }else{
+                setIsSeller(false)
+            }
+        } catch (error) {
+            setIsSeller(false)
+        }
+    }
 
     const fetchProducts = async () => {
         setProducts(dummyProducts);
@@ -68,11 +85,12 @@ export const AppContextProvider = ({children})=>{
     }
 
     useEffect(() => {
+        fetchSeller();
       fetchProducts();
     }, [])
 
 
-    const value = { user, setUser, getCartCount, getCartAmount, isSeller,updateCartItem, addToCart, deleteCartItem, cartItem, setIsSeller, products, setProducts, showUserLogin, setShowUserLogin, navigate, currency, searchQuery, setSearchQuery}
+    const value = { user, setUser, getCartCount, axios,  getCartAmount, isSeller,updateCartItem, addToCart, deleteCartItem, cartItem, setIsSeller, products, setProducts, showUserLogin, setShowUserLogin, navigate, currency, searchQuery, setSearchQuery}
     return <AppContext.Provider value={value}>
         {children}
     </AppContext.Provider>

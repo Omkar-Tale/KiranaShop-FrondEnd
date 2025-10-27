@@ -1,9 +1,10 @@
 import React from 'react'
 import { useAppContext } from '../contexts/AppContext'
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [state, setState] = React.useState("login");
-    const {setShowUserLogin, user, setUser} = useAppContext();
+    const {setShowUserLogin, axios, user, setUser} = useAppContext();
 
     const [formData, setFormData] = React.useState({
         name: '',
@@ -12,12 +13,18 @@ const Login = () => {
     })
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setUser({
-            email : "omkartale@gamil.com",
-            name: "Omkar Tale"
-        })
-        setShowUserLogin(false)
+        try {
+            e.preventDefault();
+            const {data} = await axios.post("/api/user/login", formData);
+            if(data.success){
+                setUser(true);
+                setShowUserLogin(false)
+            }else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
 
     const handleChange = (e) => {
@@ -26,7 +33,7 @@ const Login = () => {
     }
   return (
     <div onClick={()=> setShowUserLogin(false)} className='fixed inset-0 z-30 flex items-center justify-center bg-black/80 text-sm text-gray-600'>
-    <form onSubmit={handleSubmit} onClick={(e)=> e.stopPropagation()} className="sm:w-[350px] w-full text-center border border-gray-300/60 rounded-2xl px-8 bg-white">
+    <form onSubmit={handleSubmit} onClick={(e)=> e.stopPropagation()} className="sm:w-[350px] w-full text-center border border-gray-300/60 rounded-2xl px-8 mx-5 bg-white">
                 <h1 className="text-purple-900 text-3xl mt-10 font-medium">{state === "login" ? "Login" : "Sign up"}</h1>
                 <p className="text-gray-500 text-sm mt-2">Please sign in to continue</p>
                 {state !== "login" && (
