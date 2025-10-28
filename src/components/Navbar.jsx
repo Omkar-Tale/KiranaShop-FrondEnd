@@ -3,13 +3,25 @@ import {NavLink} from "react-router-dom"
 import { assets } from '../assets/assets'
 import { useAppContext } from '../contexts/AppContext';
 import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-    const {user,navigate, getCartCount, setUser,  setShowUserLogin , searchQuery, setSearchQuery}= useAppContext();
-    const logout = ()=>{
-        setUser(null);
-        navigate("/")
+    const {user,navigate, getCartCount, setUser,  setShowUserLogin , searchQuery, setSearchQuery, axios}= useAppContext();
+
+    const logout = async ()=>{
+        try {
+            const {data} = await axios.get("/api/user/logout")
+            if(data.success){
+                toast.success(data.message)
+                navigate("/")
+                setUser(false)
+            }else{
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(data.message)
+        }
     }
     useEffect(()=>{
         if(searchQuery.length > 0){
@@ -74,7 +86,7 @@ const Navbar = () => {
                     Login
                 </button>):
                 (
-                <button className="cursor-pointer px-6 py-2 mt-2 bg-purple-700 hover:bg-purple-600 transition text-white rounded-full text-sm">
+                <button onClick={logout} className="cursor-pointer px-6 py-2 mt-2 bg-purple-700 hover:bg-purple-600 transition text-white rounded-full text-sm">
                     Logout
                 </button>
                 )}

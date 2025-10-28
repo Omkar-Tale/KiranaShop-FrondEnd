@@ -100,7 +100,7 @@ export const AppContextProvider = ({children})=>{
     useEffect(() => {
         fetchUser();
         fetchSeller();
-      fetchProducts();
+        fetchProducts();
     }, [])
 
 

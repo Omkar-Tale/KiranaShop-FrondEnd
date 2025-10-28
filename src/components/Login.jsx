@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
     const [state, setState] = React.useState("login");
-    const {setShowUserLogin, axios, user, setUser} = useAppContext();
+    const {setShowUserLogin, navigate, axios, user, setUser} = useAppContext();
 
     const [formData, setFormData] = React.useState({
         name: '',
@@ -17,8 +17,10 @@ const Login = () => {
             e.preventDefault();
             const {data} = await axios.post("/api/user/login", formData);
             if(data.success){
-                setUser(true);
+                toast.success(data.message)
                 setShowUserLogin(false)
+                setUser(true)
+                navigate("/")
             }else{
                 toast.error(data.message)
             }
@@ -49,9 +51,6 @@ const Login = () => {
                 <div className="flex items-center mt-4 w-full bg-white border border-purple-600 h-12 rounded-full overflow-hidden pl-6 gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-lock-icon lucide-lock"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
                     <input type="password" name="password" placeholder="Password" className="border-none outline-none ring-0" value={formData.password} onChange={handleChange} required />
-                </div>
-                <div className="mt-4 text-left text-purple-600">
-                    <button className="text-sm" type="reset">Forget password?</button>
                 </div>
                 <button type="submit" className="mt-2 w-full h-11 rounded-full text-white bg-purple-800 cursor-pointer hover:opacity-90 transition-opacity">
                     {state === "login" ? "Login" : "Sign up"}
