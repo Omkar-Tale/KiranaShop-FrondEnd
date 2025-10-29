@@ -17,6 +17,7 @@ import Contact from './pages/Contact'
 import AddProduct from './pages/seller/AddProduct'
 import Orders from './pages/seller/Orders'
 import ProductList from './pages/seller/ProductList'
+import LostPage from './components/LostPage'
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller")
@@ -41,6 +42,8 @@ const App = () => {
           <Route path='product-list' element= {<ProductList />} />
           <Route path='orders' element= {<Orders />} />
         </Route>
+
+        <Route path='*' element={<LostPage />} />
       </Routes>
       {!isSellerPath && <Footer />}
     </>

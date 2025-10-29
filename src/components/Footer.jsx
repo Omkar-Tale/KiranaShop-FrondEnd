@@ -21,15 +21,15 @@ const Footer = () => {
               <ul className="text-sm space-y-2">
                 <li><NavLink to="/" onClick={()=> window.scrollTo(0,0)}>Home</NavLink></li>
                 <li><NavLink to="/about" onClick={()=> window.scrollTo(0,0)}>About us</NavLink></li>
-                <li><NavLink to="/contact" onClick={()=> window.scrollTo(0,0)}>Contact us</NavLink></li>
+                <li><NavLink to="/contacts" onClick={()=> window.scrollTo(0,0)}>Contact us</NavLink></li>
                 <li><NavLink to="/pravacy" onClick={()=> window.scrollTo(0,0)}>Privacy policy</NavLink></li>
               </ul>
             </div>
             <div>
               <h2 className="font-semibold mb-5 text-gray-800">Get in touch</h2>
               <div className="text-sm space-y-2">
-                <p>+91-8452097707</p>
-                <p>contact@example.com</p>
+                <p>+91-7418529634</p>
+                <p>contact@gmail.com</p>
               </div>
             </div>
           </div>
