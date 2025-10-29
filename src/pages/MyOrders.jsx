@@ -4,10 +4,10 @@ import { dummyOrders } from '../assets/assets';
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
-    const {currency, products} = useAppContext();
+    const {currency} = useAppContext();
 
     const fetchMyOrder = async ()=>{
-        setMyOrders(products);
+        setMyOrders(dummyOrders);
     }
     useEffect(()=>{
         fetchMyOrder()

@@ -14,9 +14,9 @@ const ProductItem = ({ product }) => {
             <div className="text-gray-500/60 text-sm">
                 <p>{product.category}</p>
                 <p className="text-gray-700 font-medium text-lg truncate w-full">{product.name}</p>
-                <div className="flex items-center gap-0.5">
+                <div className="flex items-center gap-0.5" >
                     {Array(5).fill('').map((_, i) => (
-                        <img key={i} src={i < 4 ? assets.star_icon : assets.star_dull_icon} />
+                        <img key={i} src={i < 4 ? assets.star_icon : assets.star_dull_icon}   />
                     ))}
                     <p>(4)</p>
                 </div>

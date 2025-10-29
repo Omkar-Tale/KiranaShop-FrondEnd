@@ -13,7 +13,6 @@ import AddAddress from './pages/AddAddress'
 import MyOrders from './pages/MyOrders'
 import SellerLogin from './components/seller/SellerLogin'
 import SellerLayout from './pages/seller/SellerLayout'
-import Contact from './pages/Contact'
 import AddProduct from './pages/seller/AddProduct'
 import Orders from './pages/seller/Orders'
 import ProductList from './pages/seller/ProductList'
@@ -30,7 +29,6 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<AllProducts />} />
-        <Route path='/contact' element={<Contact />} />
         <Route path='/product/:category' element={<ProductCategory />} />
         <Route path='/products/:category/:id' element={<ProductDetails />} />
         <Route path='/cart' element={<CartDetails />} />
