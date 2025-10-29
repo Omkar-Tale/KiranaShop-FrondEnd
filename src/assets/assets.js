@@ -149,14 +149,14 @@ export const categories = [
     borderColor: "#E0B47A"
   },
   {
-    text: "Bakery & Breads",
+    text: "Bakery Products",
     path: "Bakery",
     image: bakery_image,
     bgColor: "#E0F6FE",
     borderColor: "#9DD4E6"
   },
   {
-    text: "Grains & Cereals",
+    text: "Grains Products",
     path: "Grains",
     image: grain_image,
     bgColor: "#F1E3F9",

@@ -7,7 +7,7 @@ const OurFeatures = () => {
     return (
         <div className="flex sm:flex-row flex-col items-center mt-10 gap-1">
             <div className="mb-25 w-full bg-white relative text-gray-800">
-                <h2 className="text-4xl font-semibold text-center mt-10 mb-5">Our Services</h2>
+                <h2 className="sm:text-3xl text-[20px] font-semibold sm:text-center text-start ml-6  mt-10 mb-5">Our Services</h2>
                 <div className="relative z-10 flex flex-col md:flex-row items-center px-6 justify-center sm:gap-30 gap-10">
                     <img src={assets.featuresJ} alt="Feature" className=" w-140 mt-3 object-cover rounded-2xl" />
                     <div className="flex flex-col gap-1 mt-5 px-4 md:px-0">

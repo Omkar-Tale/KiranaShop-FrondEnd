@@ -1,24 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductItem from './ProductItem'
 import { dummyProducts } from '../assets/assets'
+import { useAppContext } from '../contexts/AppContext'
 
 const TopProducts = () => {
+    const {products} = useAppContext()
+    const [selectedCategory, setSelectedCategory] = useState('')
+    const [categories, setCategories] = useState([])
+    const defaultCategory = "Fruits";
+    
+    useEffect(()=>{
+        if(products.length  > 0){
+        const uniqueCategories = [...new Set(products.map(p => p.category))];
+        setCategories(uniqueCategories);
 
-    const categories = [...new Set(dummyProducts.map(p => p.category))];
+        if(uniqueCategories.includes(defaultCategory)){
+            setSelectedCategory(defaultCategory)
+        }else{
+            setSelectedCategory(uniqueCategories[0])
+        }
+    }
+    }, [products])
 
-    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-    const filteredProducts = dummyProducts.filter(p => p.category === selectedCategory).slice(0, 10)
+   
+     const filteredProducts = products.filter(p => p.category === selectedCategory).slice(0, 10)
+     console.log(categories);
 
     return (
         <div className='mt-10'>
-            <h1 className='font-outfit text-3xl font-semibold mb-6'>
+            <h1 className='font-outfit sm:text-3xl text-[20px] font-semibold mb-3'>
                 Top Selling Products
             </h1>
             {/* tabs */}
-            <div className='flex w-full gap-5 flex-row overflow-x-scroll hideScrollber sm:mb-4 mb-8 sm:justify-center relative'>
+            <div className='flex w-full sm:gap-5 gap-2 flex-row overflow-x-scroll hideScrollber sm:mb-4 mb-5 sm:justify-center relative'>
                 {categories.map((cat, index) => (
                     <div key={index} className={`px-4 py-1 border rounded-full ${selectedCategory === cat ? 'bg-purple-200 border-purple-500' : 'bg-white border-gray-300'}`}>
-                        <h2 className={`text-xl font-medium px-3 py-1 cursor-pointer ${selectedCategory === cat ? 'text-purple-900' : 'text-gray-700 hover:text-purple-600 transition-colors duration-300'}`} onClick={() => setSelectedCategory(cat)}>{cat}</h2>
+                        <h2 className={`text-lg font-medium px-3 py-1 cursor-pointer ${selectedCategory === cat ? 'text-purple-900' : 'text-gray-700 hover:text-purple-600 transition-colors duration-300'}`} onClick={() => setSelectedCategory(cat)}>{cat}</h2>
                     </div>
                 ))}
             </div>
@@ -29,7 +46,7 @@ const TopProducts = () => {
                         <ProductItem product={product} key={index} />
                     ))
                 ) : (
-                    <h2>Products not found!</h2>
+                    <h2 className='text-xl font-medium text-purple-600 w-100 ml-110 pt-10'>Plase click on the top selling categories</h2>
                 )}
             </div>
 

@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-    const {user,navigate, getCartCount, setUser,  setShowUserLogin , searchQuery, setSearchQuery, axios}= useAppContext();
+    const {user, navigate, getCartCount, setUser,  setShowUserLogin, searchQuery, setSearchQuery, axios}= useAppContext();
 
     const logout = async ()=>{
         try {
@@ -15,12 +15,12 @@ const Navbar = () => {
             if(data.success){
                 toast.success(data.message)
                 navigate("/")
-                setUser(false)
+                setUser(data.user)
             }else{
                 toast.error(data.message)
             }
         } catch (error) {
-            toast.error(data.message)
+            toast.error(error.message)
         }
     }
     useEffect(()=>{
@@ -54,10 +54,13 @@ const Navbar = () => {
                     Login
                 </button>):(
                    <div className='relative group'>
-                        <img src={assets.profile_icon} className='w-10' alt="asd" />
-                        <ul className='hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40'>
-                            <li onClick={() => navigate('my-orders')} className='p-1.5 pl-3 hover:bg-primary/10 cursor-pointer'>My Orders</li>
-                            <li onClick={logout} className='p-1.5 pl-3 hover:bg-primary/10 cursor-pointer'>Logout</li>
+                          <div className='flex flex-row justify-center items-center'>
+                              <img src={assets.profile_icon} className='w-10' alt="asd" />
+                              <h1 className='text-base pl-2'>Hello, {user.name}</h1>
+                          </div>
+                        <ul className='hidden group-hover:block absolute inset-x-0 top-10 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40'>
+                            <li onClick={() => navigate('my-orders')} className='p-2 pl-3 hover:bg-purple-900/10 cursor-pointer'>My Orders</li>
+                            <li onClick={logout} className='p-1.5 pl-3 hover:bg-purple-900/10 cursor-pointer'>Logout</li>
                         </ul>
                     </div>
                 )}

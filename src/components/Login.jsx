@@ -11,16 +11,17 @@ const Login = () => {
         email: '',
         password: ''
     })
-
+    
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            const {data} = await axios.post("/api/user/login", formData);
+            const {name, email, password} = formData
+            const {data} = await axios.post(`/api/user/${state}`, {name, email, password});
             if(data.success){
                 toast.success(data.message)
-                setShowUserLogin(false)
-                setUser(true)
                 navigate("/")
+                setUser(data.user)
+                setShowUserLogin(false)
             }else{
                 toast.error(data.message)
             }

@@ -19,7 +19,7 @@ const MainBanner = () => {
   return (
     <>
       <div
-        className='overflow-hidden relative h-[70vh]'>
+        className='overflow-hidden h-[70vh] relative '>
         <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
           {imageSlides.map((slide, index) => (
