@@ -7,7 +7,7 @@ const ProductItem = ({ product }) => {
     const { navigate, addToCart, cartItem, deleteCartItem, updateCartItem, currency } = useAppContext();
 
     return product && (
-        <div onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-md px-4 py-3 bg-white h-full flex flex-col w-full">
+        <div onClick={() => { navigate(`/products/${product.category.toLowerCase()}/${product._id}`); scrollTo(0, 0) }} className="border border-gray-500/20 rounded-2xl inset-shadow-xs px-4 py-3 bg-white h-full flex flex-col w-full">
             <div className="group cursor-pointer flex items-center justify-center px-4">
                 <img className="group-hover:scale-105 transition max-w-26 md:max-w-36" src={product.image[0]} alt={product.name} />
             </div>
