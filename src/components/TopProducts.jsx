@@ -32,9 +32,9 @@ const TopProducts = () => {
                 Top Selling Products
             </h1>
             {/* tabs */}
-            <div className='flex w-full sm:gap-5 gap-2 flex-row overflow-x-scroll hideScrollber sm:mb-4 mb-5 sm:justify-center relative'>
+            <div className='flex w-full sm:gap-5 gap-2 flex-row overflow-x-scroll hideScrollber sm:mb-4 py-2 pb-2 mb-5 sm:justify-center relative'>
                 {categories.map((cat, index) => (
-                    <div key={index} className={`px-4 py-1 border rounded-full ${selectedCategory === cat ? 'bg-purple-200 border-purple-500' : 'bg-white border-gray-300'}`}>
+                    <div key={index} className={`px-4 hover:scale-110 transition py-1 border rounded-full ${selectedCategory === cat ? 'bg-purple-200 border-purple-500' : 'bg-white border-gray-300'}`}>
                         <h2 className={`text-lg font-medium px-3 py-1 cursor-pointer ${selectedCategory === cat ? 'text-purple-900' : 'text-gray-700 hover:text-purple-600 transition-colors duration-300'}`} onClick={() => setSelectedCategory(cat)}>{cat}</h2>
                     </div>
                 ))}
