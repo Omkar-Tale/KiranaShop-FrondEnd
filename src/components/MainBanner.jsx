@@ -19,7 +19,7 @@ const MainBanner = () => {
   return (
     <>
       <div
-        className='overflow-hidden h-[70vh] relative '>
+        className='overflow-hidden relative h-[70vh]'>
         <div className='flex transition-transform ease-in-out duration-700' style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
 
           {imageSlides.map((slide, index) => (
@@ -61,6 +61,15 @@ const MainBanner = () => {
         >
           <FaArrowRight />
         </button>
+        <div className="hidden absolute bottom-5 left-1/2 -translate-x-1/2 sm:flex gap-3">
+          {imageSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-purple-700 scale-125' : 'bg-gray-400 hover:bg-gray-300'}`}
+            ></button>
+          ))}
+        </div>
       </div>
     </>
   )

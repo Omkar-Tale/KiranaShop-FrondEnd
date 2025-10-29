@@ -4,17 +4,17 @@ import { dummyOrders } from '../assets/assets';
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
-    const {currency} = useAppContext();
+    const {currency, products} = useAppContext();
 
     const fetchMyOrder = async ()=>{
-        setMyOrders(dummyOrders);
+        setMyOrders(products);
     }
     useEffect(()=>{
         fetchMyOrder()
     },[])
 
   return (
-    <div className='mt-10 pb-16 px-5 sm:px-15'>
+    <div className='mt-10 pb-16 px-5 sm:px-15 h-screen'>
         <div className='flex flex-col items-end w-max mb-8'>
             <p className='text-2xl font-medium uppercase'>My Order</p>
             <div className='w-16 h-0.5 bg-purple-800 rounded-full'></div>
