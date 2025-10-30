@@ -126,7 +126,7 @@ const CartDetails = () => {
                         <span>Price</span><span>{currency}{getCartAmount()}</span>
                     </p>
                     <p className="flex justify-between">
-                        <span>Shipping Fee</span><span className="text-green-600">Free</span>
+                        <span>Shipping Fee</span><span className="text-purple-600">Free</span>
                     </p>
                     <p className="flex justify-between">
                         <span>Tax (2%)</span><span>{currency}{getCartAmount()*2/100}</span>
